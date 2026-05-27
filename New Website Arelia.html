@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARELIA STYLE — Clothing</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --cream: #FDF0F5;
+    --warm-white: #FFF5F8;
+    --charcoal: #3D1F2D;
+    --dark-brown: #5A2D40;
+    --warm-tan: #E8A0BC;
+    --light-tan: #F5D0E0;
+    --muted-gold: #D4607A;
+    --sage: #C06080;
+    --text-muted: #9A6070;
+    --border: rgba(212, 96, 122, 0.2);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Karla', sans-serif;
+    background: var(--warm-white);
+    color: var(--charcoal);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 3rem;
+    height: 72px;
+    background: rgba(255, 245, 248, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: all 0.3s ease;
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    color: var(--charcoal);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex; gap: 2.5rem; list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--charcoal); }
+
+  .nav-actions {
+    display: flex; align-items: center; gap: 1.5rem;
+  }
+
+  .nav-icon {
+    background: none; border: none; cursor: pointer;
+    color: var(--charcoal); font-size: 1.1rem; padding: 4px;
+    transition: color 0.2s; position: relative;
+  }
+
+  .cart-badge {
+    position: absolute; top: -4px; right: -6px;
+    background: var(--muted-gold); color: white;
+    font-size: 9px; font-weight: 500;
+    width: 16px; height: 16px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Karla', sans-serif;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 72px;
+  }
+
+  .hero-text {
+    display: flex; flex-direction: column;
+    justify-content: center; padding: 5rem 4rem 5rem 5rem;
+    background: var(--cream);
+  }
+
+  .hero-eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted-gold);
+    margin-bottom: 2rem;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--charcoal);
+    margin-bottom: 2rem;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--muted-gold);
+  }
+
+  .hero-desc {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    max-width: 380px;
+    margin-bottom: 3rem;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--charcoal);
+    color: white;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    align-self: flex-start;
+  }
+
+  .btn-primary:hover { background: var(--dark-brown); transform: translateY(-1px); }
+
+  .btn-outline {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    background: transparent;
+    color: var(--charcoal);
+    font-family: 'Karla', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--charcoal);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .btn-outline:hover { background: var(--charcoal); color: white; }
+
+  .hero-visual {
+    background: var(--light-tan);
+    position: relative;
+    overflow: hidden;
+    min-height: 600px;
+  }
+
+  .hero-img-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #F5C0D8 0%, #E8A0BC 40%, #D47098 100%);
+  }
+
+  .hero-img-overlay {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .hero-silhouette {
+    width: 60%; max-width: 320px;
+    opacity: 0.15;
+  }
+
+  .hero-badge {
+    position: absolute; bottom: 3rem; left: 3rem;
+    background: white;
+    padding: 1.2rem 1.5rem;
+    border-left: 3px solid var(--muted-gold);
+  }
+
+  .hero-badge-label {
+    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--text-muted); display: block; margin-bottom: 0.25rem;
+  }
+
+  .hero-badge-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 300; color: var(--charcoal);
+  }
+
+  /* MARQUEE */
+  .marquee-bar {
+    background: var(--charcoal);
+    padding: 0.8rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .marquee-track {
+    display: inline-flex;
+    animation: marquee 22s linear infinite;
+    gap: 0;
+  }
+
+  .marquee-item {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--warm-tan);
+    padding: 0 2.5rem;
+  }
+
+  .marquee-dot {
+    color: var(--muted-gold);
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* SECTION HEADERS */
+  .section { padding: 6rem 5rem; }
+  .section-sm { padding: 4rem 5rem; }
+
+  .section-header {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    margin-bottom: 3.5rem;
+  }
+
+  .section-eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted-gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: var(--charcoal);
+    line-height: 1.1;
+  }
+
+  /* PRODUCT GRID */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .product-card {
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+
+  .product-card:hover { transform: translateY(-4px); }
+
+  .product-card:hover .product-overlay { opacity: 1; }
+
+  .product-img {
+    position: relative;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+
+  .product-bg {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+  }
+
+  .product-card:hover .product-bg { transform: scale(1.03); }
+
+  .product-overlay {
+    position: absolute; inset: 0;
+    background: rgba(28, 28, 26, 0.35);
+    display: flex; align-items: flex-end; padding: 1.2rem;
+    opacity: 0; transition: opacity 0.3s;
+  }
+
+  .product-quick-add {
+    width: 100%;
+    padding: 0.65rem;
+    background: white;
+    border: none; cursor: pointer;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    transition: background 0.2s;
+  }
+
+  .product-quick-add:hover { background: var(--cream); }
+
+  .product-tag {
+    position: absolute; top: 1rem; left: 1rem;
+    background: var(--muted-gold);
+    color: white;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+  }
+
+  .product-wishlist {
+    position: absolute; top: 1rem; right: 1rem;
+    background: white;
+    border: none; cursor: pointer;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem; color: var(--charcoal);
+    transition: all 0.2s;
+  }
+
+  .product-wishlist:hover { background: var(--cream); color: #c0392b; }
+  .product-wishlist.active { color: #c0392b; background: #fdecea; }
+
+  .product-name {
+    font-size: 0.88rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.01em;
+  }
+
+  .product-meta {
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+
+  .product-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--charcoal);
+  }
+
+  .product-price-old {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    text-decoration: line-through;
+  }
+
+  .product-colors {
+    display: flex; gap: 4px; margin-left: auto;
+  }
+
+  .color-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.15);
+    cursor: pointer;
+  }
+
+  /* COLOR SWATCHES for products */
+  .swatch-beige { background: #C9B99A; }
+  .swatch-black { background: #1C1C1A; }
+  .swatch-white { background: #F5F0E8; }
+  .swatch-sage { background: #7A8C6E; }
+  .swatch-rust { background: #B5543B; }
+  .swatch-navy { background: #2C3E6B; }
+  .swatch-blush { background: #D4A0A0; }
+  .swatch-camel { background: #C4843C; }
+
+  /* CATEGORIES */
+  .categories-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 360px 280px;
+    gap: 1rem;
+  }
+
+  .cat-card {
+    position: relative; overflow: hidden; cursor: pointer;
+  }
+
+  .cat-card:first-child { grid-row: span 2; }
+
+  .cat-bg {
+    width: 100%; height: 100%;
+    transition: transform 0.6s ease;
+  }
+
+  .cat-card:hover .cat-bg { transform: scale(1.04); }
+
+  .cat-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(28,28,26,0.65) 0%, transparent 50%);
+    display: flex; align-items: flex-end;
+    padding: 2rem;
+  }
+
+  .cat-info { color: white; }
+
+  .cat-label {
+    font-size: 0.62rem; letter-spacing: 0.25em;
+    text-transform: uppercase; opacity: 0.75;
+    margin-bottom: 0.4rem; display: block;
+  }
+
+  .cat-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-weight: 300; line-height: 1;
+  }
+
+  /* FEATURE STRIP */
+  .feature-strip {
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .feature-item {
+    padding: 2.5rem 2rem;
+    display: flex; align-items: center; gap: 1rem;
+    border-right: 1px solid var(--border);
+  }
+
+  .feature-item:last-child { border-right: none; }
+
+  .feature-icon {
+    font-size: 1.4rem;
+    color: var(--muted-gold);
+    flex-shrink: 0;
+  }
+
+  .feature-title {
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+  }
+
+  .feature-desc {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* EDITORIAL */
+  .editorial {
+    background: var(--charcoal);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 480px;
+  }
+
+  .editorial-text {
+    padding: 5rem;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+
+  .editorial-eyebrow {
+    font-size: 0.65rem; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--muted-gold);
+    margin-bottom: 1.5rem;
+  }
+
+  .editorial-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem; font-weight: 300;
+    color: white; line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .editorial-title em {
+    font-style: italic; color: var(--warm-tan);
+  }
+
+  .editorial-desc {
+    font-size: 0.9rem; line-height: 1.9;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 2.5rem;
+    max-width: 360px;
+  }
+
+  .editorial-visual {
+    background: #3A3228;
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .editorial-pattern {
+    position: absolute; inset: 0;
+    opacity: 0.08;
+  }
+
+  /* NEWSLETTER */
+  .newsletter {
+    padding: 5rem;
+    text-align: center;
+    background: var(--warm-white);
+    border-top: 1px solid var(--border);
+  }
+
+  .newsletter-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem; font-weight: 300;
+    margin-bottom: 1rem;
+  }
+
+  .newsletter-desc {
+    font-size: 0.88rem; color: var(--text-muted);
+    line-height: 1.7; margin-bottom: 2.5rem;
+    max-width: 440px; margin-left: auto; margin-right: auto;
+  }
+
+  .newsletter-form {
+    display: flex; max-width: 480px; margin: 0 auto;
+    border: 1px solid var(--charcoal);
+  }
+
+  .newsletter-input {
+    flex: 1; padding: 1rem 1.5rem;
+    border: none; outline: none;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.88rem;
+    background: white;
+    color: var(--charcoal);
+  }
+
+  .newsletter-btn {
+    padding: 1rem 2rem;
+    background: var(--charcoal);
+    color: white; border: none; cursor: pointer;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: background 0.2s;
+  }
+
+  .newsletter-btn:hover { background: var(--dark-brown); }
+
+  /* FOOTER */
+  footer {
+    background: var(--charcoal); color: rgba(255,255,255,0.5);
+    padding: 4rem 5rem 2rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 3rem;
+  }
+
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-weight: 300;
+    letter-spacing: 0.2em; color: white;
+    margin-bottom: 1rem; display: block;
+  }
+
+  .footer-tagline {
+    font-size: 0.8rem; line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .social-links { display: flex; gap: 0.75rem; }
+
+  .social-link {
+    width: 34px; height: 34px;
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.5); font-size: 0.8rem;
+    cursor: pointer; text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .social-link:hover { border-color: var(--warm-tan); color: var(--warm-tan); }
+
+  .footer-col-title {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.65rem; letter-spacing: 0.25em;
+    text-transform: uppercase; color: white;
+    margin-bottom: 1.2rem;
+  }
+
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+
+  .footer-links a {
+    font-size: 0.82rem; color: rgba(255,255,255,0.45);
+    text-decoration: none; transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--warm-tan); }
+
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.72rem;
+  }
+
+  .footer-bottom-links { display: flex; gap: 2rem; }
+
+  .footer-bottom-links a {
+    color: rgba(255,255,255,0.3); text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-bottom-links a:hover { color: rgba(255,255,255,0.6); }
+
+  /* CART DRAWER */
+  .cart-drawer {
+    position: fixed; top: 0; right: -420px; bottom: 0;
+    width: 420px; background: white; z-index: 200;
+    box-shadow: -8px 0 40px rgba(0,0,0,0.12);
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex; flex-direction: column;
+  }
+
+  .cart-drawer.open { right: 0; }
+
+  .cart-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.4);
+    z-index: 199; opacity: 0; pointer-events: none;
+    transition: opacity 0.4s;
+  }
+
+  .cart-overlay.open { opacity: 1; pointer-events: all; }
+
+  .cart-header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .cart-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 300;
+  }
+
+  .cart-close {
+    background: none; border: none; cursor: pointer;
+    font-size: 1.2rem; color: var(--text-muted);
+    padding: 4px;
+  }
+
+  .cart-body { flex: 1; overflow-y: auto; padding: 1.5rem 2rem; }
+
+  .cart-empty {
+    text-align: center; padding: 3rem 0;
+    color: var(--text-muted); font-size: 0.88rem;
+  }
+
+  .cart-empty-icon { font-size: 2.5rem; margin-bottom: 1rem; opacity: 0.3; }
+
+  .cart-item {
+    display: flex; gap: 1rem; padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .cart-item-img {
+    width: 72px; height: 90px;
+    flex-shrink: 0;
+    object-fit: cover;
+  }
+
+  .cart-item-info { flex: 1; }
+
+  .cart-item-name { font-size: 0.88rem; margin-bottom: 0.3rem; }
+
+  .cart-item-variant {
+    font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.6rem;
+  }
+
+  .cart-item-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+  }
+
+  .cart-item-remove {
+    background: none; border: none; cursor: pointer;
+    font-size: 0.75rem; color: var(--text-muted);
+    padding: 0; letter-spacing: 0.05em;
+    text-decoration: underline; text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .cart-item-remove:hover { color: #c0392b; }
+
+  .cart-footer {
+    padding: 1.5rem 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .cart-subtotal {
+    display: flex; justify-content: space-between;
+    align-items: center; margin-bottom: 1.2rem;
+  }
+
+  .cart-subtotal-label {
+    font-size: 0.75rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--text-muted);
+  }
+
+  .cart-subtotal-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+  }
+
+  .btn-checkout {
+    width: 100%; padding: 1.1rem;
+    background: var(--charcoal); color: white;
+    border: none; cursor: pointer;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: background 0.2s;
+  }
+
+  .btn-checkout:hover { background: var(--dark-brown); }
+
+  /* SEARCH MODAL */
+  .search-modal {
+    position: fixed; inset: 0; z-index: 300;
+    background: rgba(245, 240, 232, 0.97);
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: flex-start; padding-top: 12vh;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s;
+  }
+
+  .search-modal.open { opacity: 1; pointer-events: all; }
+
+  .search-modal-inner { width: 100%; max-width: 640px; padding: 0 2rem; }
+
+  .search-label {
+    font-size: 0.65rem; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--muted-gold);
+    margin-bottom: 1.5rem; display: block;
+  }
+
+  .search-input-wrap {
+    display: flex; align-items: center;
+    border-bottom: 1.5px solid var(--charcoal); padding-bottom: 0.75rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .search-input {
+    flex: 1; font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem; font-weight: 300;
+    border: none; outline: none; background: transparent;
+    color: var(--charcoal);
+  }
+
+  .search-submit {
+    background: none; border: none; cursor: pointer;
+    font-size: 1.1rem; color: var(--text-muted);
+    padding: 4px;
+  }
+
+  .search-close-modal {
+    position: absolute; top: 2rem; right: 3rem;
+    background: none; border: none; cursor: pointer;
+    font-size: 1.5rem; color: var(--text-muted); padding: 4px;
+  }
+
+  .search-tags {
+    display: flex; gap: 0.6rem; flex-wrap: wrap;
+  }
+
+  .search-tag {
+    font-size: 0.72rem; letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid var(--border);
+    padding: 0.4rem 1rem; cursor: pointer;
+    color: var(--text-muted);
+    transition: all 0.2s; background: none;
+    font-family: 'Karla', sans-serif;
+  }
+
+  .search-tag:hover { border-color: var(--charcoal); color: var(--charcoal); }
+
+  /* TOAST */
+  .toast {
+    position: fixed; bottom: 2rem; left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--charcoal); color: white;
+    padding: 0.85rem 2rem; font-size: 0.82rem;
+    letter-spacing: 0.05em; z-index: 500;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+  }
+
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* FILTERS BAR */
+  .filters-bar {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1rem 5rem;
+    border-bottom: 1px solid var(--border);
+    background: white;
+    overflow-x: auto;
+  }
+
+  .filter-btn {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.7rem; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 0.45rem 1.1rem;
+    border: 1px solid var(--border); background: none;
+    cursor: pointer; color: var(--text-muted);
+    white-space: nowrap; transition: all 0.2s;
+  }
+
+  .filter-btn:hover, .filter-btn.active {
+    border-color: var(--charcoal); color: var(--charcoal);
+    background: var(--cream);
+  }
+
+  .filter-sep { height: 1px; flex: 1; background: var(--border); min-width: 1rem; }
+
+  .sort-label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+
+  .sort-select {
+    font-family: 'Karla', sans-serif; font-size: 0.7rem;
+    letter-spacing: 0.08em; border: 1px solid var(--border);
+    padding: 0.45rem 0.8rem; background: none; cursor: pointer;
+    color: var(--charcoal); outline: none;
+  }
+
+  /* Product color placeholders (SVG) */
+  .pcard-1 { background: linear-gradient(145deg, #F5C8D8, #E8A0B8); }
+  .pcard-2 { background: linear-gradient(145deg, #F0C0D0, #D890A8); }
+  .pcard-3 { background: linear-gradient(145deg, #E8C0C8, #C89098); }
+  .pcard-4 { background: linear-gradient(145deg, #F0D0D8, #D8A0B0); }
+  .pcard-5 { background: linear-gradient(145deg, #F8D0E0, #EAA8C0); }
+  .pcard-6 { background: linear-gradient(145deg, #E0C8D8, #C0A0B8); }
+  .pcard-7 { background: linear-gradient(145deg, #F5D0C8, #E0A898); }
+  .pcard-8 { background: linear-gradient(145deg, #F0C8E0, #D898C0); }
+  .pcard-hero { background: linear-gradient(145deg, #F5C8D8, #E8A0B8, #D47098); }
+  .pcard-cat1 { background: linear-gradient(160deg, #F0C0D0, #D890A8); }
+  .pcard-cat2 { background: linear-gradient(160deg, #ECC8D8, #C898B0); }
+  .pcard-cat3 { background: linear-gradient(160deg, #F5D0D8, #E0A0B0); }
+  .pcard-cat4 { background: linear-gradient(160deg, #E8C0D0, #C890A8); }
+  .pcard-edit { background: linear-gradient(160deg, #5A2D40, #3D1F2D); }
+
+  .product-img-placeholder {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .product-icon {
+    opacity: 0.2; font-size: 3rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; color: white;
+  }
+
+  @media (max-width: 1024px) {
+    .product-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero { grid-template-columns: 1fr; }
+    .hero-visual { min-height: 400px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    nav { padding: 0 1.5rem; }
+    .section { padding: 4rem 2rem; }
+    .section-sm { padding: 3rem 2rem; }
+    .filters-bar { padding: 1rem 2rem; }
+    .categories-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .cat-card:first-child { grid-row: span 1; grid-column: span 2; }
+    .editorial { grid-template-columns: 1fr; }
+    .editorial-visual { min-height: 300px; }
+    .newsletter { padding: 4rem 2rem; }
+    footer { padding: 3rem 2rem 1.5rem; }
+    .feature-strip { grid-template-columns: repeat(2, 1fr); }
+    .feature-item:nth-child(2) { border-right: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- SEARCH MODAL -->
+<div class="search-modal" id="searchModal">
+  <button class="search-close-modal" onclick="toggleSearch()" aria-label="Close search">✕</button>
+  <div class="search-modal-inner">
+    <span class="search-label">What are you looking for?</span>
+    <div class="search-input-wrap">
+      <input class="search-input" type="text" placeholder="Search…" id="searchInput" />
+      <button class="search-submit" aria-label="Search">→</button>
+    </div>
+    <div class="search-tags">
+      <button class="search-tag" onclick="quickSearch('Linen Blouses')">Linen Blouses</button>
+      <button class="search-tag" onclick="quickSearch('Maxi Dresses')">Maxi Dresses</button>
+      <button class="search-tag" onclick="quickSearch('Wide-leg Trousers')">Wide-leg Trousers</button>
+      <button class="search-tag" onclick="quickSearch('Knitwear')">Knitwear</button>
+      <button class="search-tag" onclick="quickSearch('Outerwear')">Outerwear</button>
+      <button class="search-tag" onclick="quickSearch('Accessories')">Accessories</button>
+    </div>
+  </div>
+</div>
+
+<!-- CART OVERLAY & DRAWER -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <span class="cart-title">Your Bag</span>
+    <button class="cart-close" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-body" id="cartBody">
+    <div class="cart-empty" id="cartEmpty">
+      <div class="cart-empty-icon">○</div>
+      <p>Your bag is empty</p>
+      <p style="margin-top:0.5rem; font-size:0.78rem;">Add pieces you love</p>
+    </div>
+    <div id="cartItems"></div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-subtotal">
+      <span class="cart-subtotal-label">Subtotal</span>
+      <span class="cart-subtotal-value" id="cartTotal">$0</span>
+    </div>
+    <button class="btn-checkout" onclick="showToast('Redirecting to checkout…')">Proceed to Checkout</button>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">ARELIA STYLE</a>
+  <ul class="nav-links">
+    <li><a href="#new">New Arrivals</a></li>
+    <li><a href="#collections">Collections</a></li>
+    <li><a href="#products">Shop</a></li>
+    <li><a href="#editorial">Story</a></li>
+    <li><a href="#" onclick="showToast('Sale items — up to 40% off')">Sale</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="nav-icon" onclick="toggleSearch()" aria-label="Search">⌕</button>
+    <button class="nav-icon" aria-label="Account">♡</button>
+    <button class="nav-icon" onclick="toggleCart()" aria-label="Cart" style="position:relative">
+      ⊕
+      <span class="cart-badge" id="cartBadge" style="display:none">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <span class="hero-eyebrow">Summer Collection — 2025</span>
+    <h1 class="hero-title">Dressed in<br><em>quiet</em><br>luxury.</h1>
+    <p class="hero-desc">Timeless pieces crafted in the finest natural fabrics. Designed for the woman who moves through the world with intention.</p>
+    <a href="#products" class="btn-primary">Explore the Collection</a>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-img-bg pcard-hero"></div>
+    <div class="hero-img-overlay">
+      <svg class="hero-silhouette" viewBox="0 0 200 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="100" cy="55" rx="30" ry="35" fill="white"/>
+        <path d="M55 130 Q60 95 100 90 Q140 95 145 130 L160 480 L40 480 Z" fill="white"/>
+        <path d="M55 130 Q30 140 20 200 L10 320 L50 310 L70 220" fill="white"/>
+        <path d="M145 130 Q170 140 180 200 L190 320 L150 310 L130 220" fill="white"/>
+      </svg>
+    </div>
+    <div class="hero-badge">
+      <span class="hero-badge-label">New In</span>
+      <span class="hero-badge-value">62 Pieces</span>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="marquee-track" id="marquee">
+    <span class="marquee-item">New Arrivals <span class="marquee-dot">·</span></span>
+    <span class="marquee-item">Free Shipping Over $150 <span class="marquee-dot">·</span></span>
+    <span class="marquee-item">Sustainable Fabrics <span class="marquee-dot">·</span></span>
+    <span class="marquee-item">Complimentary Returns <span class="marquee-dot">·</span></span>
+    <span class="marquee-item">Summer 2025 Collection <span class="marquee-dot">·</span></span>
+    <span class="marquee-item">Crafted in Europe <span class="marquee-dot">·</span></span>
+    <span class="marquee-item">New Arrivals <span class="marquee-dot">·</span></span>
+    <span class="marquee-item">Free Shipping Over $150 <span class="marquee-dot">·</span></span>
+    <span class="marquee-item">Sustainable Fabrics <span class="marquee-dot">·</span></span>
+    <span class="marquee-item">Complimentary Returns <span class="marquee-dot">·</span></span>
+    <span class="marquee-item">Summer 2025 Collection <span class="marquee-dot">·</span></span>
+    <span class="marquee-item">Crafted in Europe <span class="marquee-dot">·</span></span>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<section class="section" id="collections">
+  <div class="section-header">
+    <div>
+      <p class="section-eyebrow">Browse by</p>
+      <h2 class="section-title">Categories</h2>
+    </div>
+    <a href="#products" class="btn-outline">View All</a>
+  </div>
+  <div class="categories-grid">
+    <div class="cat-card" onclick="filterCategory('Dresses')">
+      <div class="cat-bg pcard-cat1" style="height:100%"></div>
+      <div class="cat-overlay">
+        <div class="cat-info">
+          <span class="cat-label">28 pieces</span>
+          <div class="cat-name">Dresses</div>
+        </div>
+      </div>
+    </div>
+    <div class="cat-card" onclick="filterCategory('Tops')">
+      <div class="cat-bg pcard-cat2" style="height:100%"></div>
+      <div class="cat-overlay">
+        <div class="cat-info">
+          <span class="cat-label">34 pieces</span>
+          <div class="cat-name">Tops</div>
+        </div>
+      </div>
+    </div>
+    <div class="cat-card" onclick="filterCategory('Outerwear')">
+      <div class="cat-bg pcard-cat3" style="height:100%"></div>
+      <div class="cat-overlay">
+        <div class="cat-info">
+          <span class="cat-label">16 pieces</span>
+          <div class="cat-name">Outerwear</div>
+        </div>
+      </div>
+    </div>
+    <div class="cat-card" onclick="filterCategory('Trousers')">
+      <div class="cat-bg pcard-cat4" style="height:100%"></div>
+      <div class="cat-overlay">
+        <div class="cat-info">
+          <span class="cat-label">22 pieces</span>
+          <div class="cat-name">Trousers</div>
+        </div>
+      </div>
+    </div>
+    <div class="cat-card" onclick="filterCategory('Accessories')">
+      <div class="cat-bg pcard-edit" style="height:100%"></div>
+      <div class="cat-overlay">
+        <div class="cat-info">
+          <span class="cat-label">18 pieces</span>
+          <div class="cat-name">Accessories</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE STRIP -->
+<div class="feature-strip">
+  <div class="feature-item">
+    <span class="feature-icon">◎</span>
+    <div>
+      <div class="feature-title">Free Shipping</div>
+      <div class="feature-desc">On all orders over $150 worldwide</div>
+    </div>
+  </div>
+  <div class="feature-item">
+    <span class="feature-icon">↩</span>
+    <div>
+      <div class="feature-title">Easy Returns</div>
+      <div class="feature-desc">30-day complimentary returns</div>
+    </div>
+  </div>
+  <div class="feature-item">
+    <span class="feature-icon">◇</span>
+    <div>
+      <div class="feature-title">Natural Fabrics</div>
+      <div class="feature-desc">Linen, silk & organic cotton only</div>
+    </div>
+  </div>
+  <div class="feature-item">
+    <span class="feature-icon">♡</span>
+    <div>
+      <div class="feature-title">Crafted Ethically</div>
+      <div class="feature-desc">European ateliers, fair wages</div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="section" id="products" style="background: var(--warm-white);">
+  <div class="section-header">
+    <div>
+      <p class="section-eyebrow" id="new">New Arrivals</p>
+      <h2 class="section-title">Latest Pieces</h2>
+    </div>
+  </div>
+
+  <!-- FILTERS -->
+  <div style="display:flex; align-items:center; gap:1rem; margin-bottom:2rem; flex-wrap:wrap;">
+    <button class="filter-btn active" onclick="setFilter(this, 'all')">All</button>
+    <button class="filter-btn" onclick="setFilter(this, 'Dresses')">Dresses</button>
+    <button class="filter-btn" onclick="setFilter(this, 'Tops')">Tops</button>
+    <button class="filter-btn" onclick="setFilter(this, 'Outerwear')">Outerwear</button>
+    <button class="filter-btn" onclick="setFilter(this, 'Trousers')">Trousers</button>
+    <button class="filter-btn" onclick="setFilter(this, 'Accessories')">Accessories</button>
+    <div class="filter-sep"></div>
+    <span class="sort-label">Sort</span>
+    <select class="sort-select" onchange="sortProducts(this.value)">
+      <option value="featured">Featured</option>
+      <option value="price-low">Price: Low to High</option>
+      <option value="price-high">Price: High to Low</option>
+      <option value="newest">Newest</option>
+    </select>
+  </div>
+
+  <div class="product-grid" id="productGrid"></div>
+</section>
+
+<!-- EDITORIAL -->
+<section class="editorial" id="editorial">
+  <div class="editorial-text">
+    <p class="editorial-eyebrow">Our Philosophy</p>
+    <h2 class="editorial-title">Slow fashion,<br><em>lasting beauty.</em></h2>
+    <p class="editorial-desc">Each Maison Velour piece is designed to transcend seasons. We work with small European ateliers, choosing only the finest natural fabrics — linen, silk, merino — that improve with every wearing.</p>
+    <a href="#" class="btn-primary" onclick="showToast('Opening our story…')" style="background: var(--muted-gold); align-self: flex-start;">Read Our Story</a>
+  </div>
+  <div class="editorial-visual pcard-edit">
+    <svg class="editorial-pattern" viewBox="0 0 400 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="200" cy="240" r="160" stroke="white" stroke-width="1" fill="none"/>
+      <circle cx="200" cy="240" r="120" stroke="white" stroke-width="0.5" fill="none"/>
+      <circle cx="200" cy="240" r="80" stroke="white" stroke-width="0.5" fill="none"/>
+      <line x1="0" y1="240" x2="400" y2="240" stroke="white" stroke-width="0.5"/>
+      <line x1="200" y1="0" x2="200" y2="480" stroke="white" stroke-width="0.5"/>
+      <line x1="87" y1="87" x2="313" y2="393" stroke="white" stroke-width="0.3"/>
+      <line x1="313" y1="87" x2="87" y2="393" stroke="white" stroke-width="0.3"/>
+    </svg>
+    <svg viewBox="0 0 200 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:50%; max-width:240px; opacity:0.25">
+      <ellipse cx="100" cy="55" rx="28" ry="32" fill="white"/>
+      <path d="M60 130 Q65 95 100 88 Q135 95 140 130 L155 395 L45 395 Z" fill="white"/>
+    </svg>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <p class="section-eyebrow" style="text-align:center">Stay in the know</p>
+  <h2 class="newsletter-title">Join Arelia Style</h2>
+  <p class="newsletter-desc">Early access to new arrivals, private sales, and style notes from our creative director.</p>
+  <div class="newsletter-form">
+    <input class="newsletter-input" type="email" placeholder="Your email address" id="emailInput" />
+    <button class="newsletter-btn" onclick="subscribeEmail()">Subscribe</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <span class="footer-brand">ARELIA STYLE</span>
+      <p class="footer-tagline">Timeless clothing for the thoughtful wardrobe. Crafted with care using only natural, sustainable fabrics.</p>
+      <div class="social-links">
+        <a class="social-link" href="#" aria-label="Instagram">ig</a>
+        <a class="social-link" href="#" aria-label="Pinterest">pt</a>
+        <a class="social-link" href="#" aria-label="Facebook">fb</a>
+      </div>
+    </div>
+    <div>
+      <p class="footer-col-title">Shop</p>
+      <ul class="footer-links">
+        <li><a href="#">New Arrivals</a></li>
+        <li><a href="#">Dresses</a></li>
+        <li><a href="#">Tops & Blouses</a></li>
+        <li><a href="#">Outerwear</a></li>
+        <li><a href="#">Trousers</a></li>
+        <li><a href="#">Accessories</a></li>
+        <li><a href="#">Sale</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Info</p>
+      <ul class="footer-links">
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Sustainability</a></li>
+        <li><a href="#">Sizing Guide</a></li>
+        <li><a href="#">Care Guide</a></li>
+        <li><a href="#">Stockists</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Help</p>
+      <ul class="footer-links">
+        <li><a href="#">Shipping Info</a></li>
+        <li><a href="#">Returns Policy</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Track Order</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Arelia Style. All rights reserved.</span>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Cookie Settings</a>
+    </div>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+const PRODUCTS = [
+  { id:1, name:"Linen Column Dress", category:"Dresses", price:8500, oldPrice:null, tag:"New", colors:["beige","black","sage"], bg:"pcard-1", isNew:true },
+  { id:2, name:"Silk Wrap Blouse", category:"Tops", price:5800, oldPrice:7200, tag:"Sale", colors:["white","blush","navy"], bg:"pcard-5", isNew:false },
+  { id:3, name:"Tailored Wide-leg Trouser", category:"Trousers", price:6500, oldPrice:null, tag:"New", colors:["camel","black","sage"], bg:"pcard-7", isNew:true },
+  { id:4, name:"Merino Crew Knit", category:"Tops", price:4900, oldPrice:null, tag:null, colors:["beige","rust","sage"], bg:"pcard-4", isNew:false },
+  { id:5, name:"Oversized Linen Coat", category:"Outerwear", price:14500, oldPrice:null, tag:"New", colors:["camel","black","white"], bg:"pcard-3", isNew:true },
+  { id:6, name:"Bias-cut Midi Slip", category:"Dresses", price:7200, oldPrice:8800, tag:"Sale", colors:["blush","black","beige"], bg:"pcard-8", isNew:false },
+  { id:7, name:"Structured Blazer", category:"Outerwear", price:11000, oldPrice:null, tag:null, colors:["camel","navy","black"], bg:"pcard-6", isNew:false },
+  { id:8, name:"Linen Shirt Dress", category:"Dresses", price:7800, oldPrice:null, tag:"New", colors:["white","sage","rust"], bg:"pcard-2", isNew:true },
+];
+
+let cart = [];
+let activeFilter = 'all';
+let activeWishlists = new Set();
+
+const colorMap = {
+  beige:'swatch-beige', black:'swatch-black', white:'swatch-white',
+  sage:'swatch-sage', rust:'swatch-rust', navy:'swatch-navy',
+  blush:'swatch-blush', camel:'swatch-camel'
+};
+
+function renderProducts(products) {
+  const grid = document.getElementById('productGrid');
+  grid.innerHTML = products.map(p => `
+    <div class="product-card" onclick="addToCart(${p.id})">
+      <div class="product-img">
+        <div class="product-bg ${p.bg}">
+          <div class="product-img-placeholder">
+            <span class="product-icon">${p.name.split(' ')[0][0]}</span>
+          </div>
+        </div>
+        ${p.tag ? `<span class="product-tag">${p.tag}</span>` : ''}
+        <button class="product-wishlist ${activeWishlists.has(p.id)?'active':''}" id="wl-${p.id}"
+          onclick="toggleWishlist(event,${p.id})" aria-label="Wishlist">♡</button>
+        <div class="product-overlay">
+          <button class="product-quick-add" onclick="addToCart(${p.id}); event.stopPropagation()">Quick Add</button>
+        </div>
+      </div>
+      <p class="product-name">${p.name}</p>
+      <div class="product-meta">
+        <span class="product-price">Rs. ${p.price.toLocaleString()}</span>
+        ${p.oldPrice ? `<span class="product-price-old">Rs. ${p.oldPrice.toLocaleString()}</span>` : ''}
+        <div class="product-colors">
+          ${p.colors.map(c=>`<div class="color-dot ${colorMap[c]||''}" title="${c}"></div>`).join('')}
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function setFilter(btn, category) {
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  activeFilter = category;
+  applyFilters();
+}
+
+function filterCategory(cat) {
+  activeFilter = cat;
+  document.querySelectorAll('.filter-btn').forEach(b => {
+    b.classList.toggle('active', b.textContent.trim() === cat);
+  });
+  document.getElementById('products').scrollIntoView({behavior:'smooth'});
+  applyFilters();
+}
+
+function applyFilters() {
+  let list = activeFilter === 'all' ? PRODUCTS : PRODUCTS.filter(p=>p.category===activeFilter);
+  renderProducts(list);
+}
+
+function sortProducts(val) {
+  let list = activeFilter === 'all' ? [...PRODUCTS] : PRODUCTS.filter(p=>p.category===activeFilter);
+  if(val==='price-low') list.sort((a,b)=>a.price-b.price);
+  else if(val==='price-high') list.sort((a,b)=>b.price-a.price);
+  else if(val==='newest') list.sort((a,b)=>b.isNew-a.isNew);
+  renderProducts(list);
+}
+
+function addToCart(id) {
+  const p = PRODUCTS.find(x=>x.id===id);
+  const existing = cart.find(x=>x.id===id);
+  if(existing) existing.qty++;
+  else cart.push({...p, qty:1});
+  updateCart();
+  showToast(`${p.name} added to bag`);
+}
+
+function removeFromCart(id) {
+  cart = cart.filter(x=>x.id!==id);
+  updateCart();
+}
+
+function updateCart() {
+  const badge = document.getElementById('cartBadge');
+  const total = cart.reduce((s,x)=>s+x.qty,0);
+  if(total > 0) { badge.style.display='flex'; badge.textContent=total; }
+  else badge.style.display='none';
+
+  const items = document.getElementById('cartItems');
+  const empty = document.getElementById('cartEmpty');
+  const footer = document.getElementById('cartFooter');
+
+  if(cart.length===0) {
+    empty.style.display='block'; items.innerHTML=''; footer.style.display='none';
+  } else {
+    empty.style.display='none'; footer.style.display='block';
+    items.innerHTML = cart.map(p=>`
+      <div class="cart-item">
+        <div class="cart-item-img ${p.bg}" style="display:flex;align-items:center;justify-content:center;">
+          <span style="opacity:0.2;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.2rem;color:white;">${p.name[0]}</span>
+        </div>
+        <div class="cart-item-info">
+          <p class="cart-item-name">${p.name}</p>
+          <p class="cart-item-variant">Qty: ${p.qty} · ${p.colors[0]}</p>
+          <p class="cart-item-price">Rs. ${(p.price*p.qty).toLocaleString()}</p>
+          <button class="cart-item-remove" onclick="removeFromCart(${p.id})">Remove</button>
+        </div>
+      </div>
+    `).join('');
+    const subtotal = cart.reduce((s,x)=>s+x.price*x.qty,0);
+    document.getElementById('cartTotal').textContent = 'Rs. '+subtotal.toLocaleString();
+  }
+}
+
+function toggleCart() {
+  document.getElementById('cartDrawer').classList.toggle('open');
+  document.getElementById('cartOverlay').classList.toggle('open');
+}
+
+function toggleSearch() {
+  document.getElementById('searchModal').classList.toggle('open');
+  if(document.getElementById('searchModal').classList.contains('open')) {
+    setTimeout(()=>document.getElementById('searchInput').focus(), 100);
+  }
+}
+
+function quickSearch(term) {
+  document.getElementById('searchInput').value = term;
+  setTimeout(()=>{ toggleSearch(); showToast(`Showing results for "${term}"`); }, 200);
+}
+
+function toggleWishlist(e, id) {
+  e.stopPropagation();
+  const btn = document.getElementById('wl-'+id);
+  if(activeWishlists.has(id)) { activeWishlists.delete(id); btn.classList.remove('active'); showToast('Removed from wishlist'); }
+  else { activeWishlists.add(id); btn.classList.add('active'); showToast('Saved to wishlist ♡'); }
+}
+
+function subscribeEmail() {
+  const email = document.getElementById('emailInput').value;
+  if(!email || !email.includes('@')) { showToast('Please enter a valid email'); return; }
+  document.getElementById('emailInput').value='';
+  showToast('Welcome to Arelia Style! ✓');
+}
+
+let toastTimeout;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(toastTimeout);
+  toastTimeout = setTimeout(()=>t.classList.remove('show'), 2800);
+}
+
+document.addEventListener('keydown', e => {
+  if(e.key==='Escape') {
+    document.getElementById('searchModal').classList.remove('open');
+    document.getElementById('cartDrawer').classList.remove('open');
+    document.getElementById('cartOverlay').classList.remove('open');
+  }
+});
+
+renderProducts(PRODUCTS);
+</script>
+</body>
+</html>
